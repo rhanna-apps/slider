@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistem Manajemen Aplikasi Surat</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 200%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Full viewport height */
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 3em;
+      font-weight: bold;
+      background-color: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3em;
+      color: white;
+      background-color: rgba(0,0,0,0.3);
+      padding: 15px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .nav.left {
+      left: 20px;
+    }
+
+    .nav.right {
+      right: 20px;
+    }
+
+    .nav:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-container">
+    <div class="slides" id="slides">
+      <div class="slide">
+        <img src="https://duws858oznvmq.cloudfront.net/what_integration_software_development_8b15700663.webp" alt="Surat 1">
+        <div class="slide-text">Sistem Manajemen Aplikasi Surat</div>
+      </div>
+      <div class="slide">
+        <img src="https://www.smartmobsolution.com/wp-content/uploads/2023/07/Best-Data-Recovery-Software-Tools-of-2023.jpg" alt="Surat 2">
+        <div class="slide-text">Kelola Surat Masuk & Keluar</div>
+      </div>
+      <div class="slide">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.x5QJRj8havUf1JH11R97sAHaES?r=0&w=1280&h=740&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Surat 3">
+        <div class="slide-text">Efisiensi & Otomatisasi</div>
+      </div>
+    </div>
+    <div class="nav left" onclick="moveSlide(-1)">&#10094;</div>
+    <div class="nav right" onclick="moveSlide(1)">&#10095;</div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function moveSlide(direction) {
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  </script>
+
+</body>
+</html>
